@@ -1,0 +1,10 @@
+/.idea
+/.metadata
+/.settings
+/bin
+/build
+/out
+/run
+/*.iml
+/*.ipr
+/*.iws

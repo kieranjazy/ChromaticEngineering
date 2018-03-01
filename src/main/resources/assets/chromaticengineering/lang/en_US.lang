@@ -1,0 +1,7 @@
+itemGroup.chromaticengineering=Chromatic Engineering
+block.chromaticengineering:esotericShrine.name=Esoteric Shrine
+block.chromaticengineering:fluidDisplacer.name=Fluid Displacer
+block.chromaticengineering:shrineReceptacle.name=Shrine Receptacle
+tile.esotericShrine.name=Esoteric Shrine
+tile.fluidDisplacer.name=Fluid Displacer
+tile.shrineReceptacle.name=Shrine Receptacle

@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "normal": { "model": "chromaticengineering:esotericshrine" },
+    "book": { "model": "chromaticengineering:esotericshrine_book" }
+  }
+}

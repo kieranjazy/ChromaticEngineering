@@ -1,0 +1,8 @@
+{
+	"parent": "chromaticengineering:block/shapes/shrinereceptacle",
+	"textures": {
+	  "up": "chromaticengineering:blocks/esotericshrine_top",
+	  "bottom": "chromaticengineering:blocks/esotericshrine_bottom",
+	  "side": "chromaticengineering:blocks/esotericshrine"
+	}
+}
