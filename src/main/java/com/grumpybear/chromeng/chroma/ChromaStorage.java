@@ -13,13 +13,13 @@ public class ChromaStorage {
 	
 	
 	
-	public ChromaUnit red;
-	public ChromaUnit orange;
-	public ChromaUnit yellow;
-	public ChromaUnit green;
-	public ChromaUnit blue;
-	public ChromaUnit indigo;
-	public ChromaUnit violet;
+	private ChromaUnit red;
+	private ChromaUnit orange;
+	private ChromaUnit yellow;
+	private ChromaUnit green;
+	private ChromaUnit blue;
+	private ChromaUnit indigo;
+	private ChromaUnit violet;
 
 	public ArrayList<ChromaUnit> activeColours;
 	
@@ -99,14 +99,11 @@ public class ChromaStorage {
 	}
 	
 	public ChromaUnit getColour(EnumColour colour) {
-		for (ChromaUnit unit : this.getChromaUnits()) {
+		for (ChromaUnit unit : getChromaUnits()) {
 			if (unit.getChromaType() == colour) {
 				return unit;
 			}
-			System.out.println("Current Iter: " + unit.getChromaType());
-			System.out.println("Param Colour: " + colour);
 		}
-		System.out.println("---------------");
 		return null;
 	}
 	

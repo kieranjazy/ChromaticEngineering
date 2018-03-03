@@ -36,7 +36,7 @@ public class ItemPalette extends ItemChargeMulti implements IModeItem{
    public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
       if (isSelected && !worldIn.isRemote && stack.getItem() instanceof IModeItem) {
          if (CEKeyBindings.key.isPressed()) {
-            switchMode(stack, new MessageSwitchMode(stack));
+            switchMode(stack);
          }
       }
 

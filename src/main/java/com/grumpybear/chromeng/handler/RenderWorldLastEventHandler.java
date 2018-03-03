@@ -2,6 +2,7 @@ package com.grumpybear.chromeng.handler;
 
 import com.grumpybear.chromeng.init.ModItems;
 import com.grumpybear.chromeng.item.workonlater.ItemBlockDesignator;
+import com.grumpybear.chromeng.item.workonlater.ItemLocationCard;
 import com.grumpybear.chromeng.render.RenderDesignated;
 import com.grumpybear.chromeng.util.BlockPosUtil;
 import net.minecraft.client.Minecraft;
@@ -9,6 +10,7 @@ import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;

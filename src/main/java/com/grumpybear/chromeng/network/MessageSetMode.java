@@ -1,47 +1,48 @@
 package com.grumpybear.chromeng.network;
 
+import com.grumpybear.chromeng.ChromEng;
 import com.grumpybear.chromeng.item.IModeItem;
 import io.netty.buffer.ByteBuf;
-import io.netty.buffer.ByteBufUtil;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.network.ByteBufUtils;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
-import java.util.Arrays;
-import java.util.Collections;
+public class MessageSetMode  implements IMessage{
 
-/**
- * Created by Kieran on 7/12/2017.
- */
-public class MessageSwitchMode implements IMessage{
    private ItemStack stack;
+   private int modeNo;
 
-   public MessageSwitchMode(){}
-
-   public MessageSwitchMode(ItemStack stack) {
-      this.stack = stack;
+   public MessageSetMode() {
    }
 
+   public MessageSetMode(ItemStack stack, int modeNo) {
+      this.stack = stack;
+      this.modeNo = modeNo;
+   }
 
    @Override
    public void fromBytes(ByteBuf buf) {
       this.stack = ByteBufUtils.readItemStack(buf);
+      this.modeNo = buf.readInt();
    }
 
    @Override
    public void toBytes(ByteBuf buf) {
-      ByteBufUtils.writeItemStack(buf, stack);
+      ByteBufUtils.writeItemStack(buf, this.stack);
+      buf.writeInt(modeNo);
    }
 
-   public static class MessageSwitchModeHandler implements IMessageHandler<MessageSwitchMode, IMessage> {
+   public static class MessageSetModeHandler implements IMessageHandler<MessageSetMode, IMessage> {
 
       @Override
-      public IMessage onMessage(MessageSwitchMode message, MessageContext ctx) {
+      public IMessage onMessage(MessageSetMode message, MessageContext ctx) {
          ctx.getServerHandler().playerEntity.getServerWorld().addScheduledTask(() ->  {
-            ((IModeItem) message.stack.getItem()).switchModeClient(ctx.getServerHandler().playerEntity.getHeldItemMainhand());
+            ((IModeItem) message.stack.getItem()).setModeClient(ctx.getServerHandler().playerEntity.getHeldItemMainhand(), message.modeNo);
          });
+
+         System.out.println("Server Side: " + ((IModeItem) message.stack.getItem()).getMode(message.stack));
          return null;
       }
    }

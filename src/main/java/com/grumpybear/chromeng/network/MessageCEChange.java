@@ -70,11 +70,11 @@ public class MessageCEChange implements IMessage {
          ItemStack stack = ctx.getServerHandler().playerEntity.getHeldItemMainhand();
          if (stack.getItem() instanceof ItemChargeSingle) {
             if (message.op == OPS.ADD) {
-               ((ItemChargeSingle) stack.getItem()).addCE(stack, message.i);
+               ctx.getServerHandler().playerEntity.getServerWorld().addScheduledTask(() -> ((ItemChargeSingle) stack.getItem()).addCE(stack, message.i));
             } else if (message.op == OPS.MINUS) {
-               ((ItemChargeSingle) stack.getItem()).minusCE(stack, message.i);
+               ctx.getServerHandler().playerEntity.getServerWorld().addScheduledTask(() -> ((ItemChargeSingle) stack.getItem()).minusCE(stack, message.i));
             } else {
-               ((ItemChargeSingle) stack.getItem()).setCE(stack, message.i);
+               ctx.getServerHandler().playerEntity.getServerWorld().addScheduledTask(() -> ((ItemChargeSingle) stack.getItem()).setCE(stack, message.i));
             }
          }
 

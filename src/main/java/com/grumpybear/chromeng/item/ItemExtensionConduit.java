@@ -132,11 +132,14 @@ public class ItemExtensionConduit extends ItemChargeSingle implements IModeItem{
 
    @Override
    public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
-      if (isSelected && !worldIn.isRemote) {
+      /*
+      if (isSelected && worldIn.isRemote) {
           if (CEKeyBindings.key.isPressed()) {
-             switchMode(stack, new MessageSwitchMode(stack));
+             switchMode(stack);
          }
      }
+     */
+
    }
 
    public Set<BlockPos> getFinalBlockList(BlockPos pos1, BlockPos pos2) {

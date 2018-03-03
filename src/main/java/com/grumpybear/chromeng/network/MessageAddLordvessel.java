@@ -46,11 +46,14 @@ public class MessageAddLordvessel implements IMessage {
 
       @Override
       public IMessage onMessage(MessageAddLordvessel message, MessageContext ctx) {
+
          World world = ctx.getServerHandler().playerEntity.world;
-         if (world.getTileEntity(message.pos) instanceof TileBonfire) {
-            TileBonfire bonfire = (TileBonfire) world.getTileEntity(message.pos);
-            bonfire.linkLordvessel(message.text, message.icon);
-         }
+         ctx.getServerHandler().playerEntity.getServerWorld().addScheduledTask(() -> {
+            if (world.getTileEntity(message.pos) instanceof TileBonfire) {
+               TileBonfire bonfire = (TileBonfire) world.getTileEntity(message.pos);
+               bonfire.linkLordvessel(message.text, message.icon);
+            }
+         });
 
          return null;
       }

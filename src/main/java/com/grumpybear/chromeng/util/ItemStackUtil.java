@@ -35,12 +35,14 @@ public class ItemStackUtil {
    public static ChromaStorage getChromaStorage(ItemStack stack) {
       ChromaStorage temp = new ChromaStorage(1000);
 
-      if (!ItemStackUtil.getNBT(stack).hasKey("Colour")) {
-         temp.writeToNBT(ItemStackUtil.getNBT(stack));
-         return temp;
+      if (getNBT(stack).hasKey("Empty")) {
+         if (getNBT(stack).getBoolean("Empty")) {
+            temp.writeToNBT(getNBT(stack));
+            return temp;
+         } else {
+            temp.readFromNBT(getNBT(stack));
+         }
       }
-
-      temp.readFromNBT(ItemStackUtil.getNBT(stack));
       return temp;
 
    }

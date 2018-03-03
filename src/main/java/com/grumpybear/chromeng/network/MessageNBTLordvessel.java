@@ -40,8 +40,11 @@ public class MessageNBTLordvessel implements IMessage {
 
       @Override
       public IMessage onMessage(MessageNBTLordvessel message, MessageContext ctx) {
-         ItemLordvessel item = (ItemLordvessel) ctx.getServerHandler().playerEntity.getHeldItemMainhand().getItem();
-         item.shiftNBTData(message.startIndex, message.maxIndex, ctx.getServerHandler().playerEntity.getHeldItemMainhand());
+         ctx.getServerHandler().playerEntity.getServerWorld().addScheduledTask(() -> {
+            ItemLordvessel item = (ItemLordvessel) ctx.getServerHandler().playerEntity.getHeldItemMainhand().getItem();
+            item.shiftNBTData(message.startIndex, message.maxIndex, ctx.getServerHandler().playerEntity.getHeldItemMainhand());
+         });
+
 
          return null;
       }

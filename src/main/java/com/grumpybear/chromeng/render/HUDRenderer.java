@@ -80,12 +80,6 @@ public class HUDRenderer{
          }
       }
 
-      if (player.getHeldItemMainhand().getItem() instanceof ItemInspector) {
-         NBTTagCompound tag = ItemStackUtil.getNBT(player.getHeldItemMainhand());
-         ItemInspector item = (ItemInspector) player.getHeldItemMainhand().getItem();
-         IBlockState blockstate = mc.world.getBlockState(BlockPosUtil.getFromNBT(tag, 0));
-         mc.getRenderItem().renderItemIntoGUI(new ItemStack(Item.getItemFromBlock(blockstate.getBlock()), 1, blockstate.getBlock().getMetaFromState(blockstate)), sx - 120, sy - 65);
 
-      }
    }
 }

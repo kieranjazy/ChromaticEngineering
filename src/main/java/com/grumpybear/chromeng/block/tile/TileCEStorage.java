@@ -17,14 +17,13 @@ import java.util.List;
  * Created by Kieran on 7/25/2017.
  */
 public abstract class TileCEStorage extends TileInventory implements IChromaStorage{
-   public final List<EnumColour> COLOURS = new ArrayList<>(Arrays.asList(EnumColour.values()));
+   private final List<EnumColour> COLOURS = new ArrayList<>(Arrays.asList(EnumColour.values()));
    public ChromaStorage chromaStorage;
 
    @Override
    public ChromaStorage getChromaStorage() {
       return chromaStorage;
    }
-
 
    public void addCE(ItemStack stack, int ce) { //Adds CE to a chargeable item and takes that CE from this chroma storage
       if (stack.getItem() instanceof ItemChargeSingle) {
@@ -150,11 +149,17 @@ public abstract class TileCEStorage extends TileInventory implements IChromaStor
          for (EnumColour colour : ItemStackUtil.getChromaStorage(stack).getActualColours()) {
             if (getChromaStorage().hasColour(colour)) {
                if (getChromaStorage().getColour(colour).canMinusCE(LibNumbers.TRANSFER_RATE) && ItemStackUtil.getChromaStorage(stack).getColour(colour).canAddCE(LibNumbers.TRANSFER_RATE)) {
-                  ChromaStorage.addCEMachinetoItem(getChromaStorage().getColour(colour), stack, LibNumbers.TRANSFER_RATE);
-                  System.out.println("fuck off");
+                  /*
+                  chargeItem.addCE(stack, LibNumbers.TRANSFER_RATE, colour);
+                  this.getChromaStorage().getColour(colour).minusCurrentCE(LibNumbers.TRANSFER_RATE);
+                  */
+
+                  chargeItem.addCE(stack, LibNumbers.TRANSFER_RATE, colour);
+                  minusCE(stack, LibNumbers.TRANSFER_RATE, colour);
                }
             }
          }
+
       }
    }
 }

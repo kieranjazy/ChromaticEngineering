@@ -5,13 +5,11 @@ import com.grumpybear.chromeng.chroma.EnumColour;
 
 public class TileLandLeveller extends TileCEStorage {
 
-   public ChromaStorage chromaStorage;
    private final int CHROMA_MAX = 1000;
 
    public TileLandLeveller() {
-      chromaStorage = new ChromaStorage(CHROMA_MAX);
+      chromaStorage = new ChromaStorage(EnumColour.GREEN, EnumColour.YELLOW, CHROMA_MAX);
    }
-
 
 
 

@@ -38,7 +38,7 @@ public class MessageTeleport implements IMessage {
       public IMessage onMessage(MessageTeleport message, MessageContext ctx) {
          BlockPos pos = message.pos;
          EntityPlayer player = ctx.getServerHandler().playerEntity;
-         player.setPositionAndUpdate(pos.offset(EnumFacing.SOUTH).getX(), pos.offset(EnumFacing.SOUTH).getY(), pos.offset(EnumFacing.SOUTH).getZ() + 1);
+         ctx.getServerHandler().playerEntity.getServerWorld().addScheduledTask(() -> player.setPositionAndUpdate(pos.offset(EnumFacing.SOUTH).getX(), pos.offset(EnumFacing.SOUTH).getY(), pos.offset(EnumFacing.SOUTH).getZ() + 1));
          return null;
       }
    }

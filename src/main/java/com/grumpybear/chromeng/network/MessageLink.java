@@ -43,10 +43,13 @@ public class MessageLink implements IMessage {
       @Override
       public IMessage onMessage(MessageLink message, MessageContext ctx) {
          World world = ctx.getServerHandler().playerEntity.world;
-         if (world.getTileEntity(message.pos) instanceof TileBonfire) {
-            TileBonfire bonfire = (TileBonfire) world.getTileEntity(message.pos);
-            bonfire.linkDarksign(message.text);
-         }
+         ctx.getServerHandler().playerEntity.getServerWorld().addScheduledTask(() -> {
+            if (world.getTileEntity(message.pos) instanceof TileBonfire) {
+               TileBonfire bonfire = (TileBonfire) world.getTileEntity(message.pos);
+               bonfire.linkDarksign(message.text);
+            }
+         });
+
 
          return null;
       }
