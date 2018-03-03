@@ -13,7 +13,7 @@ public class GuiBattery extends GuiCEUser{
    private IInventory tileBattery;
 
    public GuiBattery(IInventory playerInv, TileBattery tile) {
-      super(new ContainerBattery(playerInv, tile), (IChromaStorage) tile, 173, 3);
+      super(new ContainerBattery(playerInv, tile), tile, 173, 3);
 
       this.xSize = 176;
       this.ySize = 166;

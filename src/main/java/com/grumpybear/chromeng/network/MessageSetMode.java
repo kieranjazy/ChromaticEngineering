@@ -42,7 +42,6 @@ public class MessageSetMode  implements IMessage{
             ((IModeItem) message.stack.getItem()).setModeClient(ctx.getServerHandler().playerEntity.getHeldItemMainhand(), message.modeNo);
          });
 
-         System.out.println("Server Side: " + ((IModeItem) message.stack.getItem()).getMode(message.stack));
          return null;
       }
    }

@@ -1,6 +1,8 @@
 package com.grumpybear.chromeng.gui.chroma;
 
+import com.grumpybear.chromeng.block.tile.TileCEStorage;
 import com.grumpybear.chromeng.chroma.ChromaUnit;
+import com.grumpybear.chromeng.chroma.EnumColour;
 import com.grumpybear.chromeng.chroma.IChromaStorage;
 import com.grumpybear.chromeng.gui.GuiCE;
 import com.grumpybear.chromeng.gui.container.ContainerBase;
@@ -19,9 +21,9 @@ public class GuiCEUser extends GuiCE {
    public int ceUnitStartLeft;
    public int ceUnitStartTop;
 
-   private IChromaStorage chromaHandler;
+   private TileCEStorage chromaHandler;
 
-   public GuiCEUser(ContainerChroma guiContainer, IChromaStorage chromaHandler, int ceUnitStartLeft, int ceUnitStartTop) {
+   public GuiCEUser(ContainerChroma guiContainer, TileCEStorage chromaHandler, int ceUnitStartLeft, int ceUnitStartTop) {
       super(guiContainer);
       this.chromaHandler = chromaHandler;
       this.ceUnitStartLeft = ceUnitStartLeft;
@@ -44,6 +46,9 @@ public class GuiCEUser extends GuiCE {
    @Override
    protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
       super.drawGuiContainerBackgroundLayer(partialTicks, mouseX, mouseY);
+      for (EnumColour colour : chromaHandler.getChromaStorage().getActualColours())
+         chromaHandler.requestCEFromServer(colour);
    }
+
 
 }

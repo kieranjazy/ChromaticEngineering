@@ -11,10 +11,12 @@ import net.minecraft.util.ResourceLocation;
 public class CEUnit extends Element{
 
    public ChromaUnit chromaUnit;
+   private int maxCE;
 
    public CEUnit(int xPos, int yPos, Gui gui, ChromaUnit chromaUnit, int unitNumber) {
       super(LibTextures.CE_UNIT_WIDTH, LibTextures.CE_UNIT_HEIGHT, xPos + ((LibTextures.CE_UNIT_WIDTH) * (unitNumber - 1)), yPos , gui);
       this.chromaUnit = chromaUnit;
+      this.maxCE = chromaUnit.getMaxCE();
    }
 
    @Override
@@ -35,7 +37,6 @@ public class CEUnit extends Element{
 
 
    protected int getYModifier() { //Method for getting modifier for correctly displaying CE levels
-      int maxCE = chromaUnit.getMaxCE();
       int currCE = chromaUnit.getCurrentCE();
 
       return currCE == 0 ? 101 : 100 - (currCE / (maxCE / 100));

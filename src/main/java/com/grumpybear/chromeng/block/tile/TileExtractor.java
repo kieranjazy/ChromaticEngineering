@@ -176,28 +176,6 @@ public class TileExtractor extends TileCEStorage implements ISidedInventory{
     {
         return 300;
     }
-
-    /*
-    public void tryCharge(int i) {
-	   ItemStack stack = getStackInSlot(i);
-	   if (stack.getItem() instanceof ItemChargeSingle && chromaStorage.getActualColours().contains(((ItemChargeSingle) stack.getItem()).COLOUR_TYPE)) {
-	      if (this.getChromaStorage().getColour(((ItemChargeSingle) stack.getItem()).getColourType()).getCurrentCE() - LibNumbers.TRANSFER_RATE >= 0 && ItemStackUtil.getChromaUnit(stack).getCurrentCE() + LibNumbers.TRANSFER_RATE <= ItemStackUtil.getChromaUnit(stack).getMaxCE()) {
-             if (((ItemChargeSingle) stack.getItem()).addCE(stack, LibNumbers.TRANSFER_RATE))
-               this.getChromaStorage().getColour(((ItemChargeSingle) stack.getItem()).getColourType()).minusCurrentCE(LibNumbers.TRANSFER_RATE);
-          }
-       }
-
-       if (stack.getItem() instanceof ItemChargeMulti) {
-          ItemChargeMulti chargeItem = (ItemChargeMulti) stack.getItem();
-	      for (EnumColour colour : COLOURS) {
-	         if (this.getChromaStorage().getColour(colour).getCurrentCE() - LibNumbers.TRANSFER_RATE >= 0 && chargeItem.getChromaStorage(stack).getColour(colour).getCurrentCE() + LibNumbers.TRANSFER_RATE <= chargeItem.getChromaStorage(stack).getMaxCE()) {
-                chargeItem.addCE(stack, LibNumbers.TRANSFER_RATE, colour);
-                this.getChromaStorage().getColour(colour).minusCurrentCE(LibNumbers.TRANSFER_RATE);
-             }
-          }
-       }
-    }
-    */
 	
 	public void extractItem()
     {

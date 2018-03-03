@@ -47,31 +47,6 @@ public class ContainerChroma extends ContainerCE{
         listener.sendAllWindowProperties(this, (IInventory) this.chromaHandler);
     }
 
-    @Override
-    public void detectAndSendChanges()
-    {
-        super.detectAndSendChanges();
-
-        for (int i = 0; i < this.listeners.size(); ++i) {
-           IContainerListener iContainerListener = this.listeners.get(i);
-
-           for (int k = 0; k < ceValues.size(); k++) {
-              if (ceValues.get(k).getCurrentCE() != tile.getField(EnumColourUtil.colourToRGB(ceValues.get(k).getChromaType()))) {
-                 iContainerListener.sendProgressBarUpdate(this, EnumColourUtil.colourToRGB(ceValues.get(k).getChromaType()), this.tile.getField(EnumColourUtil.colourToRGB(ceValues.get(k).getChromaType())));
-              }
-           }
-        }
-
-       for (ChromaUnit ceValue : ceValues) {
-          ceValue.setCurrentCE(this.tile.getField(EnumColourUtil.colourToRGB(ceValue.getChromaType())));
-       }
-    }
-    
-    @SideOnly(Side.CLIENT)
-    public void updateProgressBar(int id, int data)
-    {
-        ((TileCEStorage) chromaHandler).setField(id, data);
-    }
 
     public ChromaStorage getChromaStorage() {
 	   return chromaHandler.getChromaStorage();
