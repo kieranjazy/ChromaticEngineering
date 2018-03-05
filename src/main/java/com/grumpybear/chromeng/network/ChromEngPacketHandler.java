@@ -19,6 +19,7 @@ public class ChromEngPacketHandler {
       INSTANCE.registerMessage(MessageTeleport.MessageTeleportHandler.class, MessageTeleport.class, 4, Side.SERVER);
       INSTANCE.registerMessage(MessageCEChange.MessageCEChangeHandler.class, MessageCEChange.class, 5, Side.SERVER);
       INSTANCE.registerMessage(MessageSetMode.MessageSetModeHandler.class, MessageSetMode.class, 6, Side.SERVER);
+      INSTANCE.registerMessage(MessageSwitchCEFlow.MessageSwitchCEFlowHandler.class, MessageSwitchCEFlow.class, 9, Side.SERVER);
 
       INSTANCE.registerMessage(MessageRequestCEFromServer.MessageRequestCEFromServerHandler.class, MessageRequestCEFromServer.class, 7, Side.SERVER);
       INSTANCE.registerMessage(MessageCEFromServer.MessageCEFromServerHandler.class, MessageCEFromServer.class, 8, Side.CLIENT);

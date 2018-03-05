@@ -39,6 +39,7 @@ public class TileExtractor extends TileCEStorage implements ISidedInventory{
 
 	
 	public TileExtractor() {
+	   super();
        chromaStorage = new ChromaStorage(MAX_CHROMA);
     }
 	
@@ -88,7 +89,8 @@ public class TileExtractor extends TileCEStorage implements ISidedInventory{
 
        // *Charging logic
 
-       tryCharge();
+       if (this.getStackInSlot(this.getSizeInventory() - 1) != ItemStack.EMPTY)
+          tryCharge();
 
 		// *Extraction Logic
 
@@ -300,8 +302,13 @@ public class TileExtractor extends TileCEStorage implements ISidedInventory{
     {
         return inventory.getField(0) > 0;
     }
-	
-	@Override
+
+   @Override
+   public EnergyFlow getFlowDirection() {
+      return null;
+   }
+
+   @Override
 	public int getSizeInventory() {
 		return 4 + super.getSizeInventory();
 	}

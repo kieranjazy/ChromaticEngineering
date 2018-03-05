@@ -46,6 +46,8 @@ public class MessageRequestCEFromServer implements IMessage{
       }
 
       public void handle(MessageRequestCEFromServer message, MessageContext ctx) {
+         if (!ctx.getServerHandler().playerEntity.world.isBlockLoaded(message.pos))
+            return;
          TileEntity tile = ctx.getServerHandler().playerEntity.world.getTileEntity(message.pos);
          if (!(tile instanceof TileCEStorage)) {
             return;

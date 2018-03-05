@@ -8,6 +8,10 @@ public class ChromaUnit {
 	int maxCE;
 	
 	EnumColour chromaType;
+
+	public ChromaUnit() {
+
+	}
 	
 	public ChromaUnit(EnumColour chroma) {
 		this.maxCE = 1000;
@@ -32,14 +36,14 @@ public class ChromaUnit {
 		return maxCE;
 	}
 	
-	public void addCurrentCE(int currentCE) {
-		if (this.currentCE + currentCE <= this.maxCE)
-			this.currentCE += currentCE;
+	public void addCurrentCE(int ceParam) {
+		if (this.currentCE + ceParam <= this.maxCE)
+			this.currentCE += ceParam;
 	}
 
-	public void minusCurrentCE(int currentCE) {
-		if (this.currentCE - currentCE >= 0)
-			this.currentCE -= currentCE;
+	public void minusCurrentCE(int ceParam) {
+		if (this.currentCE - ceParam >= 0)
+			this.currentCE -= ceParam;
 	}
 
 	public boolean canMinusCE(int value) {
@@ -58,7 +62,7 @@ public class ChromaUnit {
 	
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
 		String temp = EnumColourUtil.colourToString(chromaType);
-		
+
 		nbt.setInteger("Current" + temp, currentCE);
 		nbt.setInteger("Max" + temp, maxCE);
 		nbt.setByte("Colour" + temp, EnumColourUtil.colourToByte(chromaType));

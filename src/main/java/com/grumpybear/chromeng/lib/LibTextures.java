@@ -13,11 +13,15 @@ public class LibTextures {
 	public static final ResourceLocation CE_UNIT = new ResourceLocation("chromaticengineering:textures/gui/ce_unit.png");
 	public static final ResourceLocation CHROMA_STORAGE = new ResourceLocation("chromaticengineering:textures/gui/chroma_storage.png");
 	public static final ResourceLocation ICON_LOCATION = new ResourceLocation("chromaticengineering:textures/icons.png");
+	public static final ResourceLocation CE_IO = new ResourceLocation("chromaticengineering:textures/gui/ceio.png");
 
 	public static final int CE_UNIT_WIDTH = 14;
 	public static final int CE_UNIT_HEIGHT = 112;
 
 	public static final int CE_ITEM_SLOT_WH = 28;
+
+	public static final int CE_IO_WIDTH = 56;
+	public static final int CE_IO_HEIGHT = 31;
 
 	
 	public static final int SIZE_X = 6;
@@ -26,8 +30,8 @@ public class LibTextures {
 	public static final int SIZE_FULL_X = 5;
 	public static final int SIZE_FULL_Y = 101;
 	
-	public static final int CONTAINER_SIZE_X = 79 + 20;
-	public static final int CONTAINER_SIZE_Y = 110 + 26;
+	public static final int CONTAINER_SIZE_X = 99;
+	public static final int CONTAINER_SIZE_Y = 136;
 	
 	public static final Pair RED_LOCATION = new Pair(8, 4);
 	public static final Pair ORANGE_LOCATION = new Pair(18, 4);

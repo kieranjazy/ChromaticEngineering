@@ -185,4 +185,13 @@ public class ChromaStorage {
 			((ItemChargeMulti) stack.getItem()).addCE(stack, value, p1.getChromaType());
 		}
 	}
+
+	public static void addCEItemtoMachine(ChromaUnit p1, ItemStack stack, int value) {
+		if (stack.getItem() instanceof ItemChargeSingle) {
+			((ItemChargeSingle) stack.getItem()).minusCE(stack, value);
+		} else if (stack.getItem() instanceof ItemChargeMulti) {
+			((ItemChargeMulti) stack.getItem()).minusCE(stack, value, p1.getChromaType());
+		}
+		p1.addCurrentCE(value);
+	}
 }

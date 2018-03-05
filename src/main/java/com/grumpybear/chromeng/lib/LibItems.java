@@ -13,6 +13,7 @@ public class LibItems {
 	public static final String INSPECTOR = "inspector";
 	public static final String MLE = "MLE";
 	public static final String VOID_VACUUM = "voidVacuum";
+	public static final String DESIGNATOR = "designator";
 	
 	public static final String[] DUST_TYPES = new String[] {
 			"dustEffervescent",

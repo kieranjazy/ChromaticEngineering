@@ -3,6 +3,7 @@ package com.grumpybear.chromeng.util;
 import com.grumpybear.chromeng.chroma.ChromaStorage;
 import com.grumpybear.chromeng.chroma.ChromaUnit;
 import com.grumpybear.chromeng.chroma.EnumColour;
+import com.grumpybear.chromeng.item.ItemChargeSingle;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -20,9 +21,9 @@ public class ItemStackUtil {
    }
 
    public static ChromaUnit getChromaUnit(ItemStack stack) {
-      ChromaUnit temp = new ChromaUnit(EnumColour.ORANGE, 1000);
+      ChromaUnit temp = new ChromaUnit(((ItemChargeSingle) stack.getItem()).getColourType(), 1000);
 
-      if (!getNBT(stack).hasKey("Colourorange")) {
+      if (getNBT(stack).getKeySet().isEmpty()) {
          temp.writeToNBT(getNBT(stack));
          return temp;
       }

@@ -35,6 +35,7 @@ public class GuiCE extends GuiContainer {
       }
    }
 
+
    @Override
    public void drawScreen(int mouseX, int mouseY, float partialTicks) {
       this.drawDefaultBackground();
@@ -50,7 +51,7 @@ public class GuiCE extends GuiContainer {
       elements.remove(element);
    }
 
-   public ArrayList<Element> getElements(Class<? extends Element> type) {
+   public ArrayList<? extends Element> getElements(Class<? extends Element> type) {
       ArrayList<Element> elementsoftype = new ArrayList<>();
 
       for (Element element : elements) {

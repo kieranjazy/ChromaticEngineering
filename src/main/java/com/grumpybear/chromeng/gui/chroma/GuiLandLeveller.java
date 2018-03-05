@@ -48,7 +48,7 @@ public class GuiLandLeveller extends GuiCEUser{
       for (Element element : elements) {
          if (element.intersectsWith(mouseX, mouseY)) {
             if (element instanceof IconButton) {
-               player.inventory.addItemStackToInventory(new ItemStack(ModItems.locationCard));
+               player.inventory.addItemStackToInventory(new ItemStack(ModItems.designator));
             }
          }
       }

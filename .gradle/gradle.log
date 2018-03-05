@@ -1,7 +1,7 @@
 This mapping 'snapshot_20161220' was designed for MC 1.11! Use at your own peril.This mapping 'snapshot_20161220' was designed for MC 1.11! Use at your own peril.
 
 #################################################
-         ForgeGradle 2.3-SNAPSHOT-315a0db        
+         ForgeGradle 2.3-SNAPSHOT-c9bb579        
   https://github.com/MinecraftForge/ForgeGradle  
 #################################################
                Powered by MCP unknown               
@@ -9,7 +9,7 @@ This mapping 'snapshot_20161220' was designed for MC 1.11! Use at your own peril
          by: Searge, ProfMobius, Fesh0r,         
          R4wk, ZeuX, IngisKahn, bspkrs           
 #################################################
-Version string ' (-0.01)' does not match SemVer specification 
+Version string '0.02' does not match SemVer specification 
 You should try SemVer : http://semver.org/
 :deobfCompileDummyTask
 :deobfProvidedDummyTask
@@ -17,14 +17,12 @@ You should try SemVer : http://semver.org/
 :compileApiJava UP-TO-DATE
 :processApiResources UP-TO-DATE
 :apiClasses UP-TO-DATE
-:sourceMainJava UP-TO-DATE
-:compileJavaNote: C:\Users\kiera\Documents\Minecraft Mods\Chromatic Engineering\build\sources\main\java\com\grumpybear\chromeng\block\BlockBonfire.java uses or overrides a deprecated API.
-Note: Recompile with -Xlint:deprecation for details.
-
-:processResources UP-TO-DATE
+:sourceMainJava
+:compileJava
+:processResources
 :classes
-:jar UP-TO-DATE
-:sourceTestJava
+:jar
+:sourceTestJava UP-TO-DATE
 :compileTestJava UP-TO-DATE
 :processTestResources UP-TO-DATE
 :testClasses UP-TO-DATE
@@ -47,4 +45,4 @@ remapping source...
 
 BUILD SUCCESSFUL
 
-Total time: 35.925 secs
+Total time: 53.551 secs

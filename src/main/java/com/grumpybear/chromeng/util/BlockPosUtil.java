@@ -4,6 +4,9 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.BlockPos;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 public class BlockPosUtil {
 	
 
@@ -58,5 +61,13 @@ public class BlockPosUtil {
 
 	public static BlockPos readFromByteBuf(ByteBuf buf) {
 		return new BlockPos(buf.readInt(), buf.readInt(), buf.readInt());
+	}
+
+	public static Set<BlockPos> calculate(BlockPos pos1, BlockPos pos2) {
+		Set<BlockPos> blocks = new LinkedHashSet<>();
+
+		
+
+		return blocks;
 	}
 }

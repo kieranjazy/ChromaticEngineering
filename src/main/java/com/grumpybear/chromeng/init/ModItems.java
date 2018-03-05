@@ -20,6 +20,7 @@ public class ModItems {
 	public static Item extensionConduit = new ItemExtensionConduit();
 	public static Item inspector = new ItemInspector();
 	public static Item voidVacuum = new ItemVoidVacuum();
+	public static Item designator = new ItemDesignator();
 	
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> evt) {
@@ -33,5 +34,6 @@ public class ModItems {
 		registry.register(extensionConduit);
 		registry.register(inspector);
 		registry.register(voidVacuum);
+		registry.register(designator);
 	}
 }

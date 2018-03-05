@@ -12,7 +12,7 @@ public class GuiExtractor extends GuiCEUser{
 	private IInventory tileExtractor;
 	
 	public GuiExtractor(IInventory playerInv, TileExtractor tile) {
-		super(new ContainerExtractor(playerInv, tile), tile, 173, 3);
+		super(new ContainerExtractor(playerInv, tile), tile, 173, 3, true);
 		
 		this.xSize = 176;
 		this.ySize = 166;
