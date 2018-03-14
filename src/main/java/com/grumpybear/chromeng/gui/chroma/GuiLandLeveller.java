@@ -11,6 +11,8 @@ import com.grumpybear.chromeng.gui.element.IconButton;
 import com.grumpybear.chromeng.init.ModItems;
 import com.grumpybear.chromeng.lib.LibIcons;
 import com.grumpybear.chromeng.lib.LibTextures;
+import com.grumpybear.chromeng.network.ChromEngPacketHandler;
+import com.grumpybear.chromeng.network.MessageGivePlayerItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Items;
@@ -25,7 +27,7 @@ public class GuiLandLeveller extends GuiCEUser{
    private IInventory tileLandLeveller;
 
    public GuiLandLeveller(IInventory playerInv, TileLandLeveller tile) {
-      super(new ContainerLandLeveller(playerInv, tile), tile, 173, 3);
+      super(new ContainerLandLeveller(playerInv, tile), tile, 173, 3, true);
 
       this.xSize = 176;
       this.ySize = 166;
@@ -49,6 +51,7 @@ public class GuiLandLeveller extends GuiCEUser{
          if (element.intersectsWith(mouseX, mouseY)) {
             if (element instanceof IconButton) {
                player.inventory.addItemStackToInventory(new ItemStack(ModItems.designator));
+               ChromEngPacketHandler.INSTANCE.sendToServer(new MessageGivePlayerItem(new ItemStack(ModItems.designator)));
             }
          }
       }

@@ -1,6 +1,7 @@
 package com.grumpybear.chromeng.gui.container.chroma;
 
 import com.grumpybear.chromeng.block.tile.TileLandLeveller;
+import com.grumpybear.chromeng.gui.slot.SlotFiltered;
 import com.grumpybear.chromeng.lib.LibTextures;
 import net.minecraft.inventory.IContainerListener;
 import net.minecraft.inventory.IInventory;
@@ -16,6 +17,7 @@ public class ContainerLandLeveller extends ContainerChroma{
       super(playerInv, chromaHandler, LibTextures.SLOT_X_POS_EXTRACTOR, LibTextures.SLOT_Y_POS_EXTRACTOR);
 
       tile = (TileLandLeveller) chromaHandler;
+
    }
 
    @Override

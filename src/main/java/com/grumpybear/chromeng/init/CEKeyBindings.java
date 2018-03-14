@@ -1,5 +1,6 @@
 package com.grumpybear.chromeng.init;
 
+import com.grumpybear.chromeng.ChromEng;
 import com.grumpybear.chromeng.item.IModeItem;
 import com.grumpybear.chromeng.item.ItemDesignator;
 import com.grumpybear.chromeng.item.ItemExtensionConduit;
@@ -53,12 +54,15 @@ public class CEKeyBindings {
                      }
                   } else if (item instanceof ItemDesignator) {
                      NBTTagCompound nbt = ItemStackUtil.getNBT(stack);
-                     if (nbtHasPos(nbt, 0) && nbtHasPos(nbt, 1)) {
-                        if (!arePosSame(getFromNBT(nbt, 0), getFromNBT(nbt, 1))) {
-
+                        if (!nbtHasPos(nbt, 0) || !nbtHasPos(nbt, 1)) {
+                           int result = item.getMode(stack) == 0 ? 1 : 0;
+                           item.setModeClient(stack, result);
+                           ChromEngPacketHandler.INSTANCE.sendToServer(new MessageSetMode(stack, result));
+                        } else if (nbtHasPos(nbt, 0) && nbtHasPos(nbt, 1)) {
+                           if (!arePosSame(getFromNBT(nbt, 0), getFromNBT(nbt, 1))) {
+                              item.switchModeClient(stack);
+                           }
                         }
-                     }
-
                   } else {
                      item.switchModeClient(stack);
                      ChromEngPacketHandler.INSTANCE.sendToServer(new MessageSwitchMode(stack));

@@ -1,6 +1,7 @@
 package com.grumpybear.chromeng.handler;
 
 import com.grumpybear.chromeng.init.ModItems;
+import com.grumpybear.chromeng.item.ItemDesignator;
 import com.grumpybear.chromeng.item.workonlater.ItemBlockDesignator;
 import com.grumpybear.chromeng.item.workonlater.ItemLocationCard;
 import com.grumpybear.chromeng.render.RenderDesignated;
@@ -20,10 +21,7 @@ import net.minecraftforge.client.event.RenderWorldLastEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import static com.grumpybear.chromeng.util.BlockPosUtil.getFromNBT;
 import static com.grumpybear.chromeng.util.ItemStackUtil.getNBT;
@@ -77,6 +75,16 @@ public class RenderWorldLastEventHandler {
                     renderExtensionBlocks(event, p, map);
 
               }
+           }
+        }
+
+        if (held.getItem() == ModItems.designator) {
+		   if (((ItemDesignator) held.getItem()).getMode(held) == 2 && ((ItemDesignator) held.getItem()).getBlocksToVisualise() != null) {
+		      Map<BlockPos,ResourceLocation> map = new HashMap<>();
+		      for (BlockPos pos : ((ItemDesignator) held.getItem()).getBlocksToVisualise())
+		         map.put(pos, glow);
+
+		      renderExtensionBlocks(event, p, map);
            }
         }
 	}

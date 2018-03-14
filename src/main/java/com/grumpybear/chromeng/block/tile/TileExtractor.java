@@ -86,11 +86,10 @@ public class TileExtractor extends TileCEStorage implements ISidedInventory{
 	
 	@Override
 	public void update() {
-
+	   super.update();
        // *Charging logic
 
-       if (this.getStackInSlot(this.getSizeInventory() - 1) != ItemStack.EMPTY)
-          tryCharge();
+
 
 		// *Extraction Logic
 

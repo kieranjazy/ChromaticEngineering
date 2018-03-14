@@ -64,6 +64,14 @@ public abstract class TileCEStorage extends TileInventory implements IChromaStor
       return compound;
    }
 
+   @Override
+   public void update() {
+      super.update();
+
+      if (this.getStackInSlot(this.getSizeInventory() - 1) != ItemStack.EMPTY)
+         tryCharge();
+   }
+
    public void tryCharge() { //Try to charge CE Slot
       ItemStack stack = getStackInSlot(getSizeInventory() - 1);
 

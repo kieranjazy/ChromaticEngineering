@@ -1,8 +1,10 @@
 package com.grumpybear.chromeng.util;
 
 import io.netty.buffer.ByteBuf;
+import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -63,10 +65,44 @@ public class BlockPosUtil {
 		return new BlockPos(buf.readInt(), buf.readInt(), buf.readInt());
 	}
 
-	public static Set<BlockPos> calculate(BlockPos pos1, BlockPos pos2) {
+	public static Set<BlockPos> calculateLandLeveller(BlockPos pos1, BlockPos pos2, World world) {
 		Set<BlockPos> blocks = new LinkedHashSet<>();
+		int x1, y1, z1, x2, y2, z2;
 
-		
+		if (pos1.getX() > pos2.getX()) {
+			x1 = pos2.getX();
+			x2 = pos1.getX();
+		} else {
+			x1 = pos1.getX();
+			x2 = pos2.getX();
+		}
+
+		if (pos1.getY() > pos2.getY()) {
+			y1 = pos2.getY();
+			y2 = pos1.getY();
+		} else {
+			y1 = pos1.getY();
+			y2 = pos2.getY();
+		}
+
+		if (pos1.getZ() > pos2.getZ()) {
+			z1 = pos2.getZ();
+			z2 = pos1.getZ();
+		} else {
+			z1 = pos1.getZ();
+			z2 = pos2.getZ();
+		}
+
+		for (int x = x1; x <= x2; x++) {
+			for (int y = y1; y <= y2; y++) {
+				for (int z = z1; z <= z2; z++) {
+					BlockPos temp = new BlockPos(x, y, z);
+					if (world.getBlockState(temp).getBlock() == Blocks.DIRT.getBlockState().getBlock() || world.getBlockState(temp) == Blocks.SAND.getBlockState().getBlock())
+						blocks.add(new BlockPos(x, y, z));
+				}
+			}
+		}
+
 
 		return blocks;
 	}
