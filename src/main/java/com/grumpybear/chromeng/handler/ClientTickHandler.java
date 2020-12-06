@@ -15,7 +15,6 @@ public class ClientTickHandler {
       if (event.phase == TickEvent.Phase.END) {
          GuiScreen gui = Minecraft.getMinecraft().currentScreen;
          if (gui == null && CEKeyBindings.key.isPressed()) {
-            System.out.println("fuck you");
          }
       }
    }
